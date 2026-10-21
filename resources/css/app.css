@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn { @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium shadow-sm transition focus:outline-none focus:ring-2 focus:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed; }
+    .btn-primary { @apply btn bg-mbsp-700 text-white hover:bg-mbsp-800 focus:ring-mbsp-500; }
+    .btn-secondary { @apply btn bg-white text-slate-700 ring-1 ring-inset ring-slate-300 hover:bg-slate-50 focus:ring-mbsp-500; }
+    .btn-danger { @apply btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-500; }
+    .btn-success { @apply btn bg-emerald-600 text-white hover:bg-emerald-700 focus:ring-emerald-500; }
+    .btn-sm { @apply px-3 py-1.5 text-xs; }
+    .input { @apply block w-full rounded-md border-slate-300 text-sm shadow-sm focus:border-mbsp-500 focus:ring-mbsp-500; }
+    .label { @apply block text-sm font-medium text-slate-700 mb-1; }
+    .card { @apply rounded-lg bg-white shadow-sm ring-1 ring-slate-200; }
+    .card-header { @apply border-b border-slate-200 px-5 py-3 flex items-center justify-between gap-3; }
+    .card-title { @apply text-base font-semibold text-slate-800; }
+    .card-body { @apply p-5; }
+    .badge { @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium; }
+    .table { @apply min-w-full divide-y divide-slate-200 text-sm; }
+    .table th { @apply bg-slate-50 px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-slate-600; }
+    .table td { @apply px-3 py-2 align-top text-slate-700; }
+    .table tbody tr { @apply border-t border-slate-100; }
+    .table tbody tr:hover { @apply bg-slate-50; }
+    .error { @apply mt-1 text-xs text-red-600; }
+    .prose-ai h2 { @apply mt-4 mb-2 text-base font-semibold text-slate-800; }
+    .prose-ai h3 { @apply mt-3 mb-1 font-semibold text-slate-800; }
+    .prose-ai p { @apply mb-2; }
+    .prose-ai ul { @apply mb-2 list-disc pl-5; }
+    .prose-ai ol { @apply mb-2 list-decimal pl-5; }
+    .prose-ai blockquote { @apply mb-3 border-l-4 border-amber-400 bg-amber-50 px-3 py-2 text-amber-900; }
+    .prose-ai code { @apply rounded bg-slate-100 px-1 text-xs; }
+    .prose-ai table { @apply mb-3 text-xs; }
+    .prose-ai td, .prose-ai th { @apply border border-slate-200 px-2 py-1; }
+}
+
+[x-cloak] { display: none !important; }
