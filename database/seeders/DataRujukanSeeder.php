@@ -50,20 +50,19 @@ class DataRujukanSeeder extends Seeder
             SaluranAduan::updateOrCreate(['kod' => $kod], ['nama' => $nama]);
         }
 
-        // Jenis tindakan disusun mengikut kerangka Peraturan-Peraturan Pegawai Awam MBSP
-        // (Kelakuan dan Tatatertib) 1995. Rujukan peraturan merujuk P.U. (A) 395/1993; semak
-        // padanan nombor peraturan dengan teks MBSP 1995 apabila tersedia.
+        // Jenis tindakan & rujukan mengikut Peraturan-Peraturan Pegawai Awam Majlis Perbandaran
+        // Seberang Perai (Kelakuan dan Tatatertib) 1995 [Pg.P.U. 16/1995].
         $tindakan = [
-            ['PBT-TATATERTIB', 'Syor kepada Pihak Berkuasa Tatatertib – mulakan prosiding tatatertib', 'tatatertib', 'Kes berasas; dikemukakan kepada Lembaga/Pihak Berkuasa Tatatertib untuk prosiding.', 'Peraturan 36, P.U. (A) 395/1993'],
-            ['PBT-BUANG-TURUN', 'Syor prosiding tatatertib dengan tujuan buang kerja / turun pangkat', 'tatatertib', 'Bagi salah laku berat.', 'Peraturan 37, P.U. (A) 395/1993'],
-            ['HKM-AMARAN', 'Hukuman: Amaran', 'tatatertib', 'Jenis hukuman tatatertib.', 'Peraturan 38, P.U. (A) 395/1993'],
-            ['HKM-DENDA', 'Hukuman: Denda', 'tatatertib', 'Jenis hukuman tatatertib.', 'Peraturan 38, P.U. (A) 395/1993'],
-            ['HKM-LUCUT', 'Hukuman: Lucut Hak Emolumen', 'tatatertib', 'Jenis hukuman tatatertib.', 'Peraturan 38, P.U. (A) 395/1993'],
-            ['HKM-TANGGUH', 'Hukuman: Tangguh Pergerakan Gaji', 'tatatertib', 'Jenis hukuman tatatertib.', 'Peraturan 38, P.U. (A) 395/1993'],
-            ['HKM-TURUN-GAJI', 'Hukuman: Turun Gaji', 'tatatertib', 'Jenis hukuman tatatertib.', 'Peraturan 38, P.U. (A) 395/1993'],
-            ['HKM-TURUN-PANGKAT', 'Hukuman: Turun Pangkat', 'tatatertib', 'Jenis hukuman tatatertib.', 'Peraturan 38, P.U. (A) 395/1993'],
-            ['HKM-BUANG', 'Hukuman: Buang Kerja', 'tatatertib', 'Jenis hukuman tatatertib paling berat.', 'Peraturan 38, P.U. (A) 395/1993'],
-            ['TAHAN-KERJA', 'Syor tahan kerja / gantung kerja sementara siasatan', 'tatatertib', 'Bagi kes jenayah atau salah laku berat.', 'Peraturan 43–45, P.U. (A) 395/1993'],
+            ['PBT-TATATERTIB', 'Syor kepada Pihak Berkuasa Tatatertib – mulakan prosiding tatatertib', 'tatatertib', 'Kes berasas; dikemukakan kepada Lembaga/Pihak Berkuasa Tatatertib untuk prosiding.', 'Peraturan 28, Pg.P.U. 16/1995'],
+            ['PBT-BUANG-TURUN', 'Syor prosiding tatatertib dengan tujuan buang kerja / turun pangkat', 'tatatertib', 'Bagi salah laku berat.', 'Peraturan 29, Pg.P.U. 16/1995'],
+            ['HKM-AMARAN', 'Hukuman: Amaran', 'tatatertib', 'Jenis hukuman tatatertib.', 'Peraturan 39, Pg.P.U. 16/1995'],
+            ['HKM-DENDA', 'Hukuman: Denda', 'tatatertib', 'Jenis hukuman tatatertib.', 'Peraturan 39, Pg.P.U. 16/1995'],
+            ['HKM-LUCUT', 'Hukuman: Lucut Hak Emolumen', 'tatatertib', 'Jenis hukuman tatatertib.', 'Peraturan 39, Pg.P.U. 16/1995'],
+            ['HKM-TANGGUH', 'Hukuman: Tangguh Pergerakan Gaji', 'tatatertib', 'Jenis hukuman tatatertib.', 'Peraturan 39, Pg.P.U. 16/1995'],
+            ['HKM-TURUN-GAJI', 'Hukuman: Turun Gaji', 'tatatertib', 'Jenis hukuman tatatertib.', 'Peraturan 39, Pg.P.U. 16/1995'],
+            ['HKM-TURUN-PANGKAT', 'Hukuman: Turun Pangkat', 'tatatertib', 'Jenis hukuman tatatertib.', 'Peraturan 39, Pg.P.U. 16/1995'],
+            ['HKM-BUANG', 'Hukuman: Buang Kerja', 'tatatertib', 'Jenis hukuman tatatertib paling berat.', 'Peraturan 39, Pg.P.U. 16/1995'],
+            ['TAHAN-KERJA', 'Syor tahan kerja / gantung kerja sementara siasatan', 'tatatertib', 'Bagi kes jenayah atau salah laku berat.', 'Peraturan 45–47, Pg.P.U. 16/1995'],
             ['SURAT-TEGURAN', 'Surat teguran / nasihat (bukan hukuman)', 'pentadbiran', 'Tindakan pentadbiran bagi kesalahan kecil.', null],
             ['KAUNSELING', 'Sesi kaunseling / bimbingan', 'pentadbiran', null, null],
             ['PERTUKARAN', 'Syor pertukaran tugas / penempatan', 'pentadbiran', 'Mengelak konflik kepentingan atau risiko berulang.', null],

@@ -252,16 +252,23 @@ class AliranKerjaAduanTest extends TestCase
         $this->actingAs($this->u('pembantu.tadbir'))->getJson('/hr/cari?q=bin')->assertOk()->assertJsonStructure([['id', 'nama', 'no_pekerja']]);
     }
 
-    public function test_peraturan_1993_dimuatkan_dan_digunakan_ai(): void
+    public function test_peraturan_mbsp_1995_dimuatkan_dan_digunakan_ai(): void
     {
-        $r = RujukanPeraturan::where('kod', 'PU-A-395-1993')->firstOrFail();
-        $this->assertSame(65, $r->seksyen()->count());
-        $this->assertTrue($r->seksyen()->where('no_seksyen', 'Peraturan 4A')->where('tajuk', 'Gangguan seksual')->exists());
-        $this->assertStringContainsString('(g) buang kerja', $r->seksyen()->where('no_seksyen', 'Peraturan 38')->value('kandungan'));
+        $this->assertFalse(RujukanPeraturan::whereIn('kod', ['PU-A-395-1993', 'PP-MBSP-KT-1995'])->exists());
+
+        $r = RujukanPeraturan::where('kod', 'PGPU-16-1995')->firstOrFail();
+        $this->assertTrue($r->teks_rasmi);
+        $this->assertGreaterThanOrEqual(55, $r->seksyen()->count());
+        foreach (range(1, 55) as $n) {
+            $this->assertTrue($r->seksyen()->where('no_seksyen', "Peraturan {$n}")->exists(), "Peraturan {$n} tiada");
+        }
+        $this->assertStringContainsStringIgnoringCase('amaran', $r->seksyen()->where('no_seksyen', 'Peraturan 39')->value('kandungan'));
+
+        // Fail Warta asal boleh dimuat turun
+        $this->actingAs($this->u('pegawai.siasatan1'))->get("/rujukan/{$r->id}/fail")->assertOk()->assertHeader('content-type', 'application/pdf');
 
         $aduan = Aduan::whereHas('kategori', fn ($q) => $q->where('kod', 'RSH'))->whereNotNull('pegawai_siasatan_id')->firstOrFail();
         $rujukan = app(AiService::class)->cariRujukan($aduan->load('aktiviti', 'kategori'));
-        $this->assertTrue($rujukan->contains(fn ($x) => str_contains($x['tajuk'], 'Peraturan 38')));
-        $this->assertTrue($rujukan->contains(fn ($x) => str_contains($x['tajuk'], '1993')));
+        $this->assertTrue($rujukan->contains(fn ($x) => str_contains($x['tajuk'], 'Seberang Perai') && str_contains($x['tajuk'], 'Peraturan 39')));
     }
 }

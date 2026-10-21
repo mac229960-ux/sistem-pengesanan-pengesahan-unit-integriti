@@ -35,7 +35,7 @@
             @if ($rujukan->ringkasan)<p class="mt-3 text-sm text-slate-700">{{ $rujukan->ringkasan }}</p>@endif
             <div class="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-xs text-slate-500">
                 @if ($rujukan->sumber_url)<span>Sumber: <a href="{{ $rujukan->sumber_url }}" target="_blank" rel="noopener" class="text-mbsp-700 hover:underline">{{ $rujukan->sumber_url }}</a></span>@endif
-                @if ($rujukan->nama_fail)<span>Fail: {{ $rujukan->nama_fail }}</span>@endif
+                @if ($rujukan->nama_fail)<a href="{{ route('rujukan.fail', $rujukan) }}" class="text-mbsp-700 hover:underline">⬇ Fail asal: {{ $rujukan->nama_fail }}</a>@endif
                 <span>Dikemas kini: {{ $rujukan->updated_at?->format('d/m/Y H:i') }}</span>
             </div>
         </div>

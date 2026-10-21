@@ -47,6 +47,15 @@ class RujukanController extends Controller
         return view('rujukan.show', ['rujukan' => $rujukan, 'bolehUrus' => $this->bolehUrus()]);
     }
 
+    /** Muat turun fail sumber asal (cth. PDF Warta). */
+    public function fail(RujukanPeraturan $rujukan)
+    {
+        abort_unless($rujukan->laluan_fail && Storage::disk('local')->exists($rujukan->laluan_fail), 404);
+        Audit::log('rujukan.muat_turun', $rujukan, 'Muat turun fail rujukan: '.$rujukan->nama_fail);
+
+        return Storage::disk('local')->download($rujukan->laluan_fail, $rujukan->nama_fail);
+    }
+
     public function create()
     {
         return view('rujukan.borang', ['rujukan' => new RujukanPeraturan(['aktif' => true])]);

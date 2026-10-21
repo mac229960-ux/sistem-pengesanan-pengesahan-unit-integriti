@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ isset($tajuk) ? $tajuk.' – ' : '' }}Sistem Integriti MBSP</title>
+    <title>{{ isset($tajuk) ? $tajuk.' – ' : '' }}{{ config('app.name') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="h-full bg-slate-100 font-sans text-slate-800 antialiased">
@@ -36,8 +36,8 @@
         <div class="flex h-16 items-center gap-3 border-b border-white/10 px-5">
             <div class="flex h-9 w-9 items-center justify-center rounded-md bg-white/10 text-sm font-bold">UI</div>
             <div class="leading-tight">
-                <div class="text-sm font-semibold text-white">Sistem Integriti</div>
-                <div class="text-[11px] text-slate-400">Majlis Bandaraya Seberang Perai</div>
+                <div class="text-[13px] font-semibold text-white">Sistem Pengesanan dan Pengesahan</div>
+                <div class="text-[11px] text-slate-400">Unit Integriti · MBSP</div>
             </div>
         </div>
         <nav class="space-y-1 p-3 text-sm">

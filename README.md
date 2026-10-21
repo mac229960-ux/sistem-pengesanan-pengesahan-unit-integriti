@@ -1,4 +1,4 @@
-# Sistem Pengesanan dan Pengesahan Unit Integriti – MBSP
+# Sistem Pengesanan dan Pengesahan Unit Integriti
 
 Aplikasi web pengurusan aduan integriti untuk Unit Integriti, Jabatan Khidmat Pengurusan, Majlis Bandaraya Seberang Perai. Dibina berdasarkan BRS versi 1.0 (21 Oktober 2026).
 
@@ -109,12 +109,11 @@ Kata laluan semua akaun: **`Integriti@2026`** — tukar selepas log masuk pertam
 
 ## 6. Pustaka Peraturan (sumber rujukan AI)
 
-**Teks penuh tersedia:** Peraturan-Peraturan Pegawai Awam (Kelakuan dan Tatatertib) 1993 [P.U. (A) 395/1993] — 65 peraturan, versi dalam talian yang dikemas kini hingga pindaan P.U. (A) 252/2015 (sumber: Wikisumber, salinan versi dalam talian AGC). Bagi pemasangan sedia ada: `php artisan db:seed --class=PeraturanPegawaiAwam1993Seeder --force`.
+**Peraturan utama:** Peraturan-Peraturan Pegawai Awam Majlis Perbandaran Seberang Perai (Kelakuan dan Tatatertib) 1995 [Pg.P.U. 16/1995, Warta Kerajaan Negeri Pulau Pinang, 28 September 1995] — teks penuh 55 peraturan, disalin daripada imbasan Warta, dengan PDF asal boleh dimuat turun dari halaman rujukan. Peraturan Persekutuan 1993 **tidak digunakan**.
 
-Kandungan lain ialah **ringkasan umum bertanda "belum disahkan"**, bukan teks rasmi. Sebelum digunakan secara rasmi, Unit Integriti perlu memuat naik teks rasmi (PDF) dari laman web JPA dan MBSP melalui menu **Pustaka Peraturan → Tambah**, terutamanya:
-- Peraturan-Peraturan Pegawai Awam Majlis Perbandaran Seberang Perai (Kelakuan dan Tatatertib) 1995 (peraturan yang terpakai kepada pegawai MBSP)
-- Pekeliling JPA berkaitan (hadiah, konflik kepentingan, pengisytiharan harta, tatatertib)
-- SOP / Prosedur Unit Integriti MBSP
+Bagi pemasangan sedia ada: `php artisan migrate --force && php artisan db:seed --class=PeraturanMbsp1995Seeder --force`.
+
+Kandungan lain (Akta SPRM, Akta Perlindungan Pemberi Maklumat, Akta Rahsia Rasmi, garis panduan JPA, SOP draf) ialah **ringkasan umum bertanda "belum disahkan"**. Muat naik teks rasmi melalui menu **Pustaka Peraturan → Tambah** (PDF berteks atau TXT; PDF imbasan perlu ditaip/OCR terlebih dahulu).
 
 AI hanya memetik rujukan yang ada dalam pustaka ini dan diarahkan untuk tidak mereka-reka peruntukan.
 

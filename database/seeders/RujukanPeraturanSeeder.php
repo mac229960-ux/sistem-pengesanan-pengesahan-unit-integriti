@@ -8,6 +8,8 @@ use Illuminate\Database\Seeder;
 /**
  * Pustaka rujukan PERMULAAN untuk enjin cadangan AI.
  *
+ * Peraturan MBSP 1995 (teks penuh) dimuatkan oleh PeraturanMbsp1995Seeder.
+ *
  * PENTING: Kandungan di bawah ialah RINGKASAN UMUM yang disediakan untuk demonstrasi
  * (teks_rasmi = false) dan BUKAN teks undang-undang rasmi. Nombor peraturan sengaja tidak
  * dinyatakan kecuali yang diketahui umum. Unit Integriti hendaklah memuat naik teks rasmi
@@ -31,27 +33,6 @@ class RujukanPeraturanSeeder extends Seeder
     private function data(): array
     {
         return [
-            [
-                'kod' => 'PP-MBSP-KT-1995',
-                'tajuk' => 'Peraturan-Peraturan Pegawai Awam Majlis Perbandaran Seberang Perai (Kelakuan dan Tatatertib) 1995',
-                'jenis' => 'peraturan', 'penerbit' => 'Majlis Bandaraya Seberang Perai', 'tahun' => 1995,
-                'sumber_url' => 'https://www.mbsp.gov.my',
-                'ringkasan' => 'Peraturan kelakuan dan tatatertib yang terpakai kepada pegawai MBSP. Ringkasan topikal ini perlu digantikan dengan teks rasmi.',
-                'seksyen' => [
-                    ['Tatakelakuan', 'Tatakelakuan am pegawai', "Seseorang pegawai hendaklah pada setiap masa memberikan taat setia kepada Yang di-Pertuan Agong, negara dan Majlis. Pegawai tidak boleh:\n(a) membelakangkan tugas awamnya demi kepentingan peribadi;\n(b) berkelakuan yang boleh menyebabkan kepentingan peribadinya bercanggah dengan tugas awamnya;\n(c) berkelakuan yang boleh menimbulkan syak munasabah bahawa dia membiarkan kepentingan peribadi bercanggah dengan tugas awam atau menggunakan kedudukan awamnya untuk faedah sendiri;\n(d) berkelakuan yang boleh memburukkan nama atau mencemarkan nama perkhidmatan;\n(e) kurang cekap atau kurang berusaha;\n(f) tidak jujur atau tidak amanah;\n(g) tidak bertanggungjawab;\n(h) membawa atau cuba membawa pengaruh atau tekanan luar untuk menyokong atau memajukan tuntutan berhubung perkhidmatan;\n(i) ingkar perintah atau berkelakuan yang boleh ditafsirkan sebagai ingkar perintah;\n(j) cuai dalam melaksanakan tugas.\nPelanggaran mana-mana tatakelakuan ini boleh menyebabkan pegawai dikenakan tindakan tatatertib."],
-                    ['Gangguan seksual', 'Larangan gangguan seksual', 'Pegawai tidak boleh melakukan gangguan seksual terhadap orang lain, sama ada secara lisan, bukan lisan, visual, isyarat atau fizikal, yang bersifat seksual dan tidak diingini oleh penerima, termasuk yang boleh menjejaskan persekitaran kerja.'],
-                    ['Kerja luar', 'Larangan kerja luar tanpa kebenaran', 'Pegawai tidak boleh menjalankan apa-apa kerja luar atau perniagaan sendiri kecuali dengan kebenaran bertulis Ketua Jabatan dan tertakluk kepada syarat bahawa kerja itu tidak menjejaskan tugas rasmi, tidak menggunakan masa atau kemudahan Majlis, dan tidak menimbulkan konflik kepentingan.'],
-                    ['Hadiah', 'Hadiah dan keraian', 'Pegawai tidak boleh menerima atau memberi, atau membenarkan isteri/suami atau mana-mana orang lain menerima atau memberi bagi pihaknya, apa-apa hadiah sama ada ketara atau tidak ketara yang mempunyai kaitan dengan tugas rasminya. Hadiah yang tidak dapat dielak hendaklah dilaporkan kepada Ketua Jabatan untuk keputusan. Pegawai juga tidak boleh menerima keraian yang boleh mempengaruhi pelaksanaan tugasnya.'],
-                    ['Harta', 'Pengisytiharan dan pemunyaan harta', 'Pegawai hendaklah mengisytiharkan harta yang dimiliki olehnya, isteri/suami atau anak, mengikut peraturan dan pekeliling semasa. Pemilikan harta yang melebihi pendapatan sah atau tidak dapat dijelaskan boleh menjadi asas tindakan tatatertib.'],
-                    ['Kewangan', 'Hidup melebihi emolumen dan keterhutangan kewangan yang serius', 'Pegawai tidak boleh hidup melebihi emolumen dan pendapatan persendiriannya yang sah. Pegawai tidak boleh berada dalam keadaan keterhutangan kewangan yang serius. Pegawai tidak boleh meminjamkan wang dengan faedah atau bertindak sebagai penjamin kepada orang yang berurusan rasmi dengannya.'],
-                    ['Maklumat rasmi', 'Pernyataan awam dan penggunaan maklumat rasmi', 'Pegawai tidak boleh membuat pernyataan awam yang boleh memudaratkan dasar atau nama baik Majlis, dan tidak boleh menggunakan atau mendedahkan maklumat rasmi untuk kepentingan diri atau pihak lain tanpa kebenaran.'],
-                    ['Kehadiran', 'Tidak hadir bertugas', 'Pegawai yang tidak hadir bertugas tanpa cuti atau tanpa terlebih dahulu mendapat kebenaran atau tanpa sebab yang munasabah boleh dikenakan tindakan tatatertib. Emolumen bagi tempoh tidak hadir boleh dilucut hak. Pegawai yang tidak hadir bertugas berturut-turut dan tidak dapat dikesan boleh dikenakan tindakan buang kerja mengikut prosedur yang ditetapkan.'],
-                    ['Dadah', 'Penyalahgunaan dadah', 'Pegawai yang didapati menyalahgunakan dadah berbahaya boleh dikenakan tindakan tatatertib selain tindakan undang-undang lain yang terpakai.'],
-                    ['Prosedur', 'Prosedur tatatertib — prinsip keadilan asasi', 'Tiada hukuman boleh dikenakan tanpa pegawai diberi peluang membela diri. Pegawai hendaklah dimaklumkan secara bertulis tentang pertuduhan atau perlakuan yang dikatakan dan diberi tempoh yang munasabah untuk mengemukakan representasi bertulis. Bagi kes yang membawa kepada buang kerja atau turun pangkat, prosedur yang lebih ketat terpakai termasuk peluang untuk didengar. Keputusan dibuat oleh Pihak Berkuasa Tatatertib yang berkenaan, bukan oleh Unit Integriti.'],
-                    ['Jenis hukuman', 'Jenis-jenis hukuman tatatertib', "Pihak Berkuasa Tatatertib boleh mengenakan mana-mana satu atau gabungan dua atau lebih hukuman berikut, bergantung kepada keseriusan salah laku:\n(a) amaran;\n(b) denda;\n(c) lucut hak emolumen;\n(d) tangguh pergerakan gaji;\n(e) turun gaji;\n(f) turun pangkat;\n(g) buang kerja.\nHukuman hendaklah setimpal dengan kesalahan dan mengambil kira rekod perkhidmatan pegawai."],
-                    ['Tahan kerja', 'Tahan kerja dan gantung kerja', 'Pegawai yang menghadapi prosiding jenayah atau prosiding tatatertib bagi salah laku berat boleh ditahan kerja atau digantung kerja bagi tempoh tertentu supaya siasatan tidak terganggu, tertakluk kepada syarat emolumen yang ditetapkan.'],
-                ],
-            ],
             [
                 'kod' => 'AKTA-SPRM-2009',
                 'tajuk' => 'Akta Suruhanjaya Pencegahan Rasuah Malaysia 2009 (Akta 694)',

@@ -33,7 +33,7 @@ class NotifikasiAduan extends Notification
             ->line('No. Rujukan: '.$this->aduan->no_rujukan)
             ->action('Buka Kes', route('aduan.show', $this->aduan))
             ->line('E-mel ini dijana secara automatik. Maklumat kes adalah SULIT.')
-            ->salutation('Sistem Integriti MBSP');
+            ->salutation(config('app.name').', MBSP');
     }
 
     public function toArray(object $notifiable): array

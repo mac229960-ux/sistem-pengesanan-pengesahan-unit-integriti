@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $tajuk ?? 'Log Masuk' }} – Sistem Integriti MBSP</title>
+    <title>{{ $tajuk ?? 'Log Masuk' }} – {{ config('app.name') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="min-h-screen bg-gradient-to-br from-mbsp-950 via-mbsp-900 to-mbsp-700 font-sans text-slate-800 antialiased">

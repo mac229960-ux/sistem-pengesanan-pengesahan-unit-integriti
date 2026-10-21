@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="sulit">SULIT</div>
-<footer>SULIT · Dicetak oleh {{ $pencetak->name }} pada {{ now()->format('d/m/Y H:i') }} · Sistem Integriti MBSP</footer>
+<footer>SULIT · Dicetak oleh {{ $pencetak->name }} pada {{ now()->format('d/m/Y H:i') }} · {{ config('app.name') }}</footer>
 <h1>Ringkasan Kes {{ $aduan->no_rujukan }}</h1>
 <div class="kecil">Unit Integriti, Jabatan Khidmat Pengurusan, Majlis Bandaraya Seberang Perai</div>
 

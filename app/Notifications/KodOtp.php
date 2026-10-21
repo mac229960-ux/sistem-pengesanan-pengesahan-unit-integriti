@@ -17,7 +17,7 @@ class KodOtp extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('Kod OTP Log Masuk – Sistem Integriti MBSP')
+            ->subject('Kod OTP Log Masuk – '.config('app.name'))
             ->greeting('Salam sejahtera '.$this->nama.',')
             ->line("Akaun: {$this->emelPengguna}")
             ->line('Kod OTP anda untuk log masuk ke Sistem Pengesanan dan Pengesahan Unit Integriti ialah:')

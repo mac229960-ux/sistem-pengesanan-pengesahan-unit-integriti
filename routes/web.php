@@ -84,6 +84,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware('peranan:ketua_unit,pegawai_siasatan,pentadbir')->group(function () {
         Route::get('/rujukan', [RujukanController::class, 'index'])->name('rujukan.index');
         Route::get('/rujukan/{rujukan}', [RujukanController::class, 'show'])->whereNumber('rujukan')->name('rujukan.show');
+        Route::get('/rujukan/{rujukan}/fail', [RujukanController::class, 'fail'])->whereNumber('rujukan')->name('rujukan.fail');
     });
     Route::middleware('peranan:ketua_unit,pentadbir')->group(function () {
         Route::get('/rujukan/baru', [RujukanController::class, 'create'])->name('rujukan.create');

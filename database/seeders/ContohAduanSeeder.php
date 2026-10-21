@@ -158,7 +158,7 @@ class ContohAduanSeeder extends Seeder
                 'justifikasi' => $berasas
                     ? 'Perlakuan pegawai bertentangan dengan tatakelakuan pegawai awam (tidak jujur / tidak bertanggungjawab).'
                     : 'Tiada bukti dokumentar atau saksi yang dapat mengesahkan dakwaan.',
-                'peruntukan_peraturan' => $berasas ? 'Peraturan-Peraturan Pegawai Awam MBSP (Kelakuan dan Tatatertib) 1995 – Tatakelakuan' : null,
+                'peruntukan_peraturan' => $berasas ? 'Peraturan 4, Peraturan-Peraturan Pegawai Awam MPSP (Kelakuan dan Tatatertib) 1995 – Tatakelakuan' : null,
                 'status' => 'dihantar', 'dihantar_pada' => $tarikhHantar,
             ]);
             $c->jenisTindakan()->sync(JenisTindakan::whereIn('kod', $tindakanKod)->pluck('id'));
