@@ -66,6 +66,19 @@ Document root web server mesti menghala ke folder `public/`. Gunakan HTTPS. Teta
 
 > ⚠️ **APP_KEY** mesti disandarkan bersama pangkalan data. Tanpanya, maklumat pengadu dan fail bukti yang disulitkan **tidak boleh dibaca semula**.
 
+### Alternatif: Pemasangan dengan Docker
+
+Server hanya memerlukan Docker Engine + Docker Compose.
+
+```bash
+cp .env.docker.example .env.docker
+# Isi: APP_KEY (jana dengan: docker run --rm php:8.3-cli php -r "echo 'base64:'.base64_encode(random_bytes(32)).PHP_EOL;"),
+#      APP_URL, DB_PASSWORD, DB_ROOT_PASSWORD, MAIL_* (SMTP MBSP)
+docker compose --env-file .env.docker up -d --build
+```
+
+Ini menjalankan 3 kontena: `app` (Apache + PHP, port 8080), `db` (MySQL 8) dan `penjadual` (peringatan SLA harian). Migrasi dan data awal dijalankan secara automatik pada kali pertama. Jika server menggunakan proksi SSL korporat, letakkan sijil CA dalam `docker/ca/` sebelum membina.
+
 ### Sandaran (backup)
 Sandarkan setiap hari: (1) pangkalan data MySQL (`mysqldump`), (2) folder `storage/app/private` (fail bukti & dokumen peraturan), (3) fail `.env`.
 
@@ -96,8 +109,10 @@ Kata laluan semua akaun: **`Integriti@2026`** — tukar selepas log masuk pertam
 
 ## 6. Pustaka Peraturan (sumber rujukan AI)
 
-Kandungan awal ialah **ringkasan umum bertanda "belum disahkan"**, bukan teks rasmi. Sebelum digunakan secara rasmi, Unit Integriti perlu memuat naik teks rasmi (PDF) dari laman web JPA dan MBSP melalui menu **Pustaka Peraturan → Tambah**, terutamanya:
-- Peraturan-Peraturan Pegawai Awam Majlis Perbandaran Seberang Perai (Kelakuan dan Tatatertib) 1995
+**Teks penuh tersedia:** Peraturan-Peraturan Pegawai Awam (Kelakuan dan Tatatertib) 1993 [P.U. (A) 395/1993] — 65 peraturan, versi dalam talian yang dikemas kini hingga pindaan P.U. (A) 252/2015 (sumber: Wikisumber, salinan versi dalam talian AGC). Bagi pemasangan sedia ada: `php artisan db:seed --class=PeraturanPegawaiAwam1993Seeder --force`.
+
+Kandungan lain ialah **ringkasan umum bertanda "belum disahkan"**, bukan teks rasmi. Sebelum digunakan secara rasmi, Unit Integriti perlu memuat naik teks rasmi (PDF) dari laman web JPA dan MBSP melalui menu **Pustaka Peraturan → Tambah**, terutamanya:
+- Peraturan-Peraturan Pegawai Awam Majlis Perbandaran Seberang Perai (Kelakuan dan Tatatertib) 1995 (peraturan yang terpakai kepada pegawai MBSP)
 - Pekeliling JPA berkaitan (hadiah, konflik kepentingan, pengisytiharan harta, tatatertib)
 - SOP / Prosedur Unit Integriti MBSP
 

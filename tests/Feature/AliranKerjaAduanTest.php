@@ -11,10 +11,12 @@ use App\Models\JenisTindakan;
 use App\Models\KategoriAduan;
 use App\Models\OtpKod;
 use App\Models\PegawaiHr;
+use App\Models\RujukanPeraturan;
 use App\Models\SaluranAduan;
 use App\Models\User;
 use App\Notifications\KodOtp;
 use App\Notifications\NotifikasiAduan;
+use App\Services\Ai\AiService;
 use App\Services\AliranKerja;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
@@ -248,5 +250,18 @@ class AliranKerjaAduanTest extends TestCase
             $this->actingAs($pegawaiKes)->get($url)->assertOk();
         }
         $this->actingAs($this->u('pembantu.tadbir'))->getJson('/hr/cari?q=bin')->assertOk()->assertJsonStructure([['id', 'nama', 'no_pekerja']]);
+    }
+
+    public function test_peraturan_1993_dimuatkan_dan_digunakan_ai(): void
+    {
+        $r = RujukanPeraturan::where('kod', 'PU-A-395-1993')->firstOrFail();
+        $this->assertSame(65, $r->seksyen()->count());
+        $this->assertTrue($r->seksyen()->where('no_seksyen', 'Peraturan 4A')->where('tajuk', 'Gangguan seksual')->exists());
+        $this->assertStringContainsString('(g) buang kerja', $r->seksyen()->where('no_seksyen', 'Peraturan 38')->value('kandungan'));
+
+        $aduan = Aduan::whereHas('kategori', fn ($q) => $q->where('kod', 'RSH'))->whereNotNull('pegawai_siasatan_id')->firstOrFail();
+        $rujukan = app(AiService::class)->cariRujukan($aduan->load('aktiviti', 'kategori'));
+        $this->assertTrue($rujukan->contains(fn ($x) => str_contains($x['tajuk'], 'Peraturan 38')));
+        $this->assertTrue($rujukan->contains(fn ($x) => str_contains($x['tajuk'], '1993')));
     }
 }

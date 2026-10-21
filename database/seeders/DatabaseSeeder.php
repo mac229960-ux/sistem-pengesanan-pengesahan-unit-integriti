@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
             PenggunaSeeder::class,
             PegawaiHrSeeder::class,
             RujukanPeraturanSeeder::class,
+            PeraturanPegawaiAwam1993Seeder::class,
         ]);
 
         // Data contoh hanya untuk persekitaran bukan produksi.
